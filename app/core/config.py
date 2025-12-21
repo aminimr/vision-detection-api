@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     MODEL_DIR: str = Field(default="models", env="MODEL_DIR")
 
     API_V1_PREFIX: str = "/api/v1"
-    HOST: str = Field(default="0.0.0.0", env="HOST")
+    HOST: str = Field(default="127.0.0.1", env="HOST")
     PORT: int = Field(default=8000, env="PORT")
 
     class Config:
