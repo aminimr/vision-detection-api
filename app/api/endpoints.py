@@ -170,8 +170,6 @@ async def detect_from_url(
         url: str,
         config: DetectionRequest = Depends()
 ):
-    """تشخیص از URL"""
-    # پیاده‌سازی مشابه با آپلود
     pass
 
 
@@ -180,14 +178,11 @@ async def batch_detection(
         request: BatchDetectionRequest,
         background_tasks: BackgroundTasks
 ):
-    """تشخیص دسته‌ای"""
-    # پیاده‌سازی پردازش موازی
     pass
 
 
 @router.get("/results/{filename}", tags=["Results"])
 async def get_result_image(filename: str):
-    """دریافت تصویر نتیجه"""
     file_path = Path(settings.RESULTS_DIR) / filename
     if not file_path.exists():
         raise HTTPException(404, "فایل یافت نشد")
@@ -196,7 +191,6 @@ async def get_result_image(filename: str):
 
 @router.post("/model/switch", tags=["Models"])
 async def switch_model(model_type: ModelType):
-    """تغییر مدل فعال"""
     try:
         global detector
         detector = detector.__class__(model_type.value)
